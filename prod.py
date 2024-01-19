@@ -3,33 +3,30 @@ import time
 import logging
 from PIL import Image, ImageTk
 
+logging.basicConfig(
+    level=logging.INFO,
+    filename="programa.log",
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
-logging.basicConfig(level=logging.INFO, filename="programa.log", format="%(asctime)s - %(levelname)s - %(message)s")
 
+class JanelaProducao:
+    img_references = Image.open("digital-removebg-preview.png")
 
-
-class JanelaProducao():
-  
-  #img_references = ImageTk.PhotoImage(file="dedo.png")
-  
-  def __init__(self, janela_principal) -> None:
-        
-        
-        self.janela_principal = janela_principal
+    def __init__(self) -> None:
         self.jprod = c.CTk()
         self.jprod.title("Produção")
-        self.jprod.geometry("800x600")
+        self.jprod.geometry("800x650")
         self.jprod.resizable(width=False, height=False)
+        c.set_appearance_mode("Dark")
 
         # Configuração de linhas e colunas para expandir conforme o tamanho da janela
-        self.jprod.columnconfigure(0, weight=1)
-        self.jprod.columnconfigure(1, weight=1)
-        self.jprod.rowconfigure(0, weight=1)
-        self.jprod.rowconfigure(1, weight=1)
+        self.jprod.columnconfigure(0, weight=2)
+        self.jprod.columnconfigure(2, weight=2)
+        self.jprod.rowconfigure(0, weight=2)
+        self.jprod.rowconfigure(1, weight=2)
         self.jprod.rowconfigure(2, weight=1)
         self.jprod.configure(padx=15, pady=15)
-
-        self.img_references = ImageTk.PhotoImage(file="dedo.png")
 
         status = c.CTkLabel(
             self.jprod,
@@ -43,15 +40,14 @@ class JanelaProducao():
 
         self.criarGridPrincipal()
         self.criarGridAdicionais()
+        
 
-        
-        
+        self.jprod.mainloop()
+
         # Configurando a função fecharProducao para ser chamada ao fechar a janela de produção
-        self.jprod.protocol("WM_DELETE_WINDOW", self.fecharProducao)
-   
-  def criarGridPrincipal(self):
-        
-        
+        # self.jprod.protocol("WM_DELETE_WINDOW", self.fecharProducao)
+
+    def criarGridPrincipal(self):
         main_grid = c.CTkFrame(
             self.jprod, width=60, height=60,fg_color="gray"
         )
@@ -71,7 +67,7 @@ class JanelaProducao():
         central_square.grid(row=0, column=0)
 
         try:
-            self.img = self.img_references
+            self.img = ImageTk.PhotoImage(self.img_references)
             image_label = c.CTkLabel(
                 main_grid, image=self.img, corner_radius=7,text=""
             )
@@ -81,7 +77,7 @@ class JanelaProducao():
 
 
 
-  def criarGridAdicionais(self):
+    def criarGridAdicionais(self):
         # Grid superior esquerdo
         top_left_grid = c.CTkFrame(
             self.jprod, width=400, height=400, bg_color="transparent",fg_color="transparent", corner_radius=10
@@ -170,88 +166,13 @@ class JanelaProducao():
         )
         top_right_grid.grid(row=0, column=8, sticky="ne")
 
-  def exibir(self):
-        self.janela_principal.fecharJanela()
-        self.jprod.deiconify()
+
+
         
-  def fecharProducao(self):
-        self.jprod.withdraw()
-        self.janela_principal.reabrirPrincipal()
+        
 
+        
 
+pd = JanelaProducao()
 
-
-class JanelaPrincipal():
-  
-  def __init__(self) -> None:
-
-    self.janela = c.CTk()
-    self.janela.title("Elevator")
-    self.janela.geometry("800x600")
-    self.janela.resizable(width=False, height=False)
-    c.set_appearance_mode("Dark")
-
-    status = c.CTkLabel(self.janela,
-                        text="Desconectado",
-                        height=10,
-                        font=("Arial", 15),
-                        corner_radius=10,
-                        text_color=("red"),
-                        anchor="e")
-    status.pack(padx=10, pady=5, anchor="ne")
-
-    titulo_inicial = c.CTkLabel(self.janela,
-                                text="Monta Cargas",
-                                height=10,
-                                font=("Arial", 50),
-                                justify="center")
-    titulo_inicial.pack(padx=10, pady=100)
-
-    self.hora_atual = c.CTkLabel(self.janela,
-                                 text='1',
-                                 height=10,
-                                 font=("Arial", 25),
-                                 justify="center")
-    self.hora_atual.pack(padx=10, pady=10)
-
-    progresso = c.CTkProgressBar(self.janela,
-                                 orientation="horizontal",
-                                 determinate_speed=1,
-                                 mode="indeterminate",
-                                 width=300,
-                                 height=20)
-    progresso.pack(pady=40)
-    progresso.set(0)
-    progresso.start()
-
-    btn_prod = c.CTkButton(self.janela,
-                           text="Prod",
-                           command=lambda: self.abrirJanela(1))
-    btn_prod.pack(pady=10)
-
-    self.update_time()
-
-    self.janela.mainloop()
-    logging.info("Janela Principal aberta")
-
-  def update_time(self):
-    data_atual = time.strftime('%H:%M:%S')
-    self.hora_atual.configure(text=f'Horas: {data_atual}')
-    self.janela.after(1000, lambda: self.update_time())
-
-  def abrirJanela(self, tela) -> None:
-
-    if tela == 1:
-      janela_producao = JanelaProducao(self)
-      logging.info("Abrindo Janela de Producao")
-      janela_producao.exibir()
-
-  def fecharJanela(self) -> None:
-    self.janela.destroy()
-
-  def reabrirPrincipal(self):
-    logging.info("Usuário Desconectado")
-
-
-# Instanciando a JanelaPrincipal para iniciar o programa
-janela_principal = JanelaPrincipal()
+pd.__init__()

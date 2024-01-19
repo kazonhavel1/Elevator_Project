@@ -1,0 +1,79 @@
+2024-01-17 17:57:52,778 - ERROR - image "pyimage1" doesn't exist
+2024-01-17 18:09:55,732 - INFO - Janela Principal aberta
+2024-01-17 18:12:25,977 - ERROR - image "pyimage1" doesn't exist
+2024-01-17 18:12:25,996 - INFO - Abrindo Janela de Produção
+2024-01-17 18:12:31,639 - INFO - Janela Principal aberta
+2024-01-17 18:12:31,639 - INFO - Janela Principal reaberta
+2024-01-17 18:12:31,646 - INFO - Janela Principal aberta
+2024-01-17 18:14:35,578 - INFO - Abrindo Janela de Producao
+2024-01-17 18:14:52,430 - INFO - Janela Principal aberta
+2024-01-17 18:14:52,430 - INFO - Janela Principal reaberta
+2024-01-17 18:14:52,431 - INFO - Janela Principal aberta
+2024-01-17 18:19:07,965 - ERROR - image "pyimage1" doesn't exist
+2024-01-17 18:19:08,033 - INFO - Abrindo Janela de Producao
+2024-01-17 18:19:52,185 - ERROR - image "pyimage1" doesn't exist
+2024-01-17 18:19:52,208 - INFO - Abrindo Janela de Producao
+2024-01-17 18:20:00,708 - INFO - Janela Principal aberta
+2024-01-17 18:20:00,709 - INFO - Janela Principal reaberta
+2024-01-17 18:20:00,711 - INFO - Janela Principal aberta
+2024-01-17 18:50:06,194 - ERROR - 'JanelaProducao' object has no attribute 'img_references'
+2024-01-17 18:50:06,214 - INFO - Abrindo Janela de Producao
+2024-01-17 18:51:31,370 - ERROR - image "pyimage1" doesn't exist
+2024-01-17 18:51:31,387 - INFO - Abrindo Janela de Producao
+2024-01-17 18:51:34,486 - INFO - Janela Principal aberta
+2024-01-17 18:51:34,487 - INFO - Janela Principal reaberta
+2024-01-17 18:51:34,491 - INFO - Janela Principal aberta
+2024-01-17 19:03:40,373 - INFO - Abrindo Janela de Producao
+2024-01-17 19:03:43,295 - INFO - Janela Principal aberta
+2024-01-17 19:03:43,295 - INFO - Janela Principal reaberta
+2024-01-17 19:03:43,295 - INFO - Janela Principal aberta
+2024-01-18 20:11:32,376 - INFO - Janela Principal aberta
+2024-01-18 21:03:44,673 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 21:03:44,700 - INFO - Abrindo Janela de Producao
+2024-01-18 21:13:43,876 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 21:13:43,903 - INFO - Abrindo Janela de Producao
+2024-01-18 21:14:05,436 - INFO - Abrindo Janela de Producao
+2024-01-18 21:17:04,190 - INFO - Abrindo Janela de Producao
+2024-01-18 21:17:30,810 - INFO - Abrindo Janela de Producao
+2024-01-18 21:19:00,384 - INFO - Abrindo Janela de Producao
+2024-01-18 21:19:09,944 - INFO - Abrindo Janela de Producao
+2024-01-18 21:20:07,237 - INFO - Abrindo Janela de Producao
+2024-01-18 21:21:05,805 - INFO - Abrindo Janela de Producao
+2024-01-18 21:22:14,546 - INFO - Abrindo Janela de Producao
+2024-01-18 21:22:27,781 - INFO - Abrindo Janela de Producao
+2024-01-18 21:22:40,179 - INFO - Abrindo Janela de Producao
+2024-01-18 21:26:01,350 - INFO - Abrindo Janela de Producao
+2024-01-18 21:26:12,373 - INFO - Abrindo Janela de Producao
+2024-01-18 21:26:13,613 - INFO - Abrindo Janela de Producao
+2024-01-18 21:26:14,267 - INFO - Abrindo Janela de Producao
+2024-01-18 21:26:14,432 - INFO - Abrindo Janela de Producao
+2024-01-18 21:26:14,641 - INFO - Abrindo Janela de Producao
+2024-01-18 21:26:14,811 - INFO - Abrindo Janela de Producao
+2024-01-18 21:26:27,794 - INFO - Abrindo Janela de Producao
+2024-01-18 21:27:02,522 - INFO - Abrindo Janela de Producao
+2024-01-18 21:28:37,043 - INFO - Abrindo Janela de Producao
+2024-01-18 21:28:40,982 - INFO - Usuário Desconectado
+2024-01-18 21:28:40,982 - INFO - Janela Principal aberta
+2024-01-18 21:28:56,773 - INFO - Abrindo Janela de Producao
+2024-01-18 21:28:58,229 - INFO - Usuário Desconectado
+2024-01-18 21:36:44,777 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 21:36:44,821 - INFO - Abrindo Janela de Producao
+2024-01-18 21:36:46,315 - INFO - Usuário Desconectado
+2024-01-18 21:37:01,428 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 21:37:01,454 - INFO - Abrindo Janela de Producao
+2024-01-18 21:52:16,122 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 21:52:16,161 - INFO - Abrindo Janela de Producao
+2024-01-18 21:52:18,074 - INFO - Usuário Desconectado
+2024-01-18 21:52:42,541 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 21:52:42,562 - INFO - Abrindo Janela de Producao
+2024-01-18 21:52:48,526 - INFO - Usuário Desconectado
+2024-01-18 21:54:43,549 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 21:54:43,566 - INFO - Abrindo Janela de Producao
+2024-01-18 21:54:55,761 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 21:54:55,779 - INFO - Abrindo Janela de Producao
+2024-01-18 21:55:09,093 - INFO - Usuário Desconectado
+2024-01-18 21:55:49,637 - INFO - Janela Principal aberta
+2024-01-18 22:06:37,025 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 22:06:37,055 - INFO - Abrindo Janela de Producao
+2024-01-18 22:06:38,698 - INFO - Usuário Desconectado
+2024-01-18 22:08:26,462 - INFO - Janela Principal aberta
