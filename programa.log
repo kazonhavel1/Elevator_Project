@@ -77,3 +77,6 @@
 2024-01-18 22:06:37,055 - INFO - Abrindo Janela de Producao
 2024-01-18 22:06:38,698 - INFO - Usuário Desconectado
 2024-01-18 22:08:26,462 - INFO - Janela Principal aberta
+2024-01-18 22:11:31,507 - ERROR - image "pyimage1" doesn't exist
+2024-01-18 22:11:31,538 - INFO - Abrindo Janela de Producao
+2024-01-18 22:11:40,634 - INFO - Usuário Desconectado
