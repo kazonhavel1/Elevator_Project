@@ -11,7 +11,7 @@ logging.basicConfig(
 
 
 class JanelaProducao:
-    img_references = Image.open("digital-removebg-preview.png")
+    img_references = Image.open("dedo.png")
 
     def __init__(self) -> None:
         self.jprod = c.CTk()

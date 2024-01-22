@@ -80,3 +80,78 @@
 2024-01-18 22:11:31,507 - ERROR - image "pyimage1" doesn't exist
 2024-01-18 22:11:31,538 - INFO - Abrindo Janela de Producao
 2024-01-18 22:11:40,634 - INFO - Usuário Desconectado
+2024-01-19 20:45:29,115 - ERROR - image "pyimage1" doesn't exist
+2024-01-19 20:45:29,142 - INFO - Abrindo Janela de Producao
+2024-01-19 20:45:30,344 - INFO - Usuário Desconectado
+2024-01-19 20:45:38,360 - ERROR - image "pyimage1" doesn't exist
+2024-01-19 20:45:38,382 - INFO - Abrindo Janela de Producao
+2024-01-19 20:45:40,605 - INFO - Usuário Desconectado
+2024-01-19 21:36:12,930 - ERROR - Erro ao se conectar no Arduíno: could not open port 'COM5': PermissionError(13, 'Acesso negado.', None, 5)
+2024-01-19 21:37:50,187 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': PermissionError(13, 'Acesso negado.', None, 5)
+2024-01-19 21:38:36,188 - INFO - Arduino Conectado!
+2024-01-19 21:38:36,190 - ERROR - Erro ao se conectar no Arduino: 'ConexaoArd' object has no attribute 'readline'
+2024-01-19 21:38:56,192 - INFO - Arduino Conectado!
+2024-01-19 21:41:55,666 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM4': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-19 21:53:29,453 - INFO - Conexão com o Arduino bem sucedida!
+2024-01-19 21:53:41,613 - INFO - Conexão com o Arduino bem sucedida!
+2024-01-19 21:53:53,054 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 21:58:23,318 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 21:58:32,777 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 21:58:32,778 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': PermissionError(13, 'Acesso negado.', None, 5)
+2024-01-19 21:58:32,778 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:06:54,535 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:09:04,937 - ERROR - Erro ao validar conexao: 
+2024-01-19 22:09:28,588 - ERROR - Erro ao validar conexao: 'ConexaoArd' object has no attribute 'ser'
+2024-01-19 22:11:41,254 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:11:56,946 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:12:19,546 - INFO - Conexao com o Arduino bem sucedida! True
+2024-01-19 22:13:02,383 - ERROR - Erro ao validar conexao: 'ConexaoArd' object has no attribute 'ser'
+2024-01-19 22:15:29,388 - ERROR - Erro ao validar conexao: 'ConexaoArd' object has no attribute 'ser'
+2024-01-19 22:16:34,220 - ERROR - Erro ao validar conexao: 'ConexaoArd' object has no attribute 'ser'
+2024-01-19 22:17:47,115 - INFO - Arduino desconectado, tentando reconexao...
+2024-01-19 22:17:47,142 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:17:47,142 - INFO - Conexao bem sucedida!
+2024-01-19 22:18:20,878 - INFO - Arduino desconectado, tentando reconexao...
+2024-01-19 22:18:20,903 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:28:24,480 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:29:53,773 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:33:51,591 - INFO - Conexao com o Arduino bem sucedida!
+2024-01-19 22:37:11,177 - ERROR - image "pyimage1" doesn't exist
+2024-01-19 22:37:11,198 - INFO - Abrindo Janela de Producao
+2024-01-19 22:37:15,929 - INFO - Usuário Desconectado
+2024-01-19 22:37:23,909 - ERROR - image "pyimage1" doesn't exist
+2024-01-19 22:37:23,929 - INFO - Abrindo Janela de Producao
+2024-01-19 22:37:26,063 - INFO - Usuário Desconectado
+2024-01-19 22:38:40,589 - ERROR - image "pyimage1" doesn't exist
+2024-01-19 22:38:40,609 - INFO - Abrindo Janela de Producao
+2024-01-19 22:38:58,756 - INFO - Usuário Desconectado
+2024-01-20 15:19:12,735 - ERROR - image "pyimage1" doesn't exist
+2024-01-20 15:19:12,768 - INFO - Abrindo Janela de Producao
+2024-01-20 15:19:14,054 - INFO - Usuário Desconectado
+2024-01-20 15:19:17,199 - ERROR - image "pyimage2" doesn't exist
+2024-01-20 15:19:17,230 - INFO - Abrindo Janela de Producao
+2024-01-20 15:19:22,467 - INFO - Usuário Desconectado
+2024-01-20 15:24:38,446 - INFO - Abrindo Janela de Producao
+2024-01-20 15:25:14,616 - INFO - Abrindo Janela de Producao
+2024-01-20 15:25:17,967 - INFO - Usuário Desconectado
+2024-01-20 15:25:39,221 - INFO - Abrindo Janela de Producao
+2024-01-20 15:25:40,316 - INFO - Usuário Desconectado
+2024-01-21 18:45:30,195 - INFO - Janela Principal aberta
+2024-01-21 20:48:06,678 - INFO - Janela Principal aberta
+2024-01-21 21:06:01,724 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:07:16,146 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:09:18,975 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:09:23,405 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:11:36,560 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:12:27,488 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:12:35,071 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:12:47,182 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:13:19,955 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:13:22,549 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:13:24,600 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:13:26,507 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:13:28,151 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:13:36,161 - INFO - Janela Principal aberta
+2024-01-21 21:14:08,114 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:14:10,665 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-21 21:14:12,466 - INFO - Janela Principal aberta

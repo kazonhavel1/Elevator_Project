@@ -1,20 +1,21 @@
 import customtkinter as c
+from tkinter import messagebox
 import time
 import logging
 from PIL import Image, ImageTk
+import arduino as ard
 
 
-logging.basicConfig(level=logging.INFO, filename="programa.log", format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO,
+    filename="programa.log",
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
 
-
-class JanelaProducao():
-  
-  #img_references = ImageTk.PhotoImage(file="dedo.png")
-  
-  def __init__(self, janela_principal) -> None:
-        
-        
+class JanelaProducao:
+    
+    def __init__(self, janela_principal) -> None:
         self.janela_principal = janela_principal
         self.jprod = c.CTk()
         self.jprod.title("Produção")
@@ -29,8 +30,6 @@ class JanelaProducao():
         self.jprod.rowconfigure(2, weight=1)
         self.jprod.configure(padx=15, pady=15)
 
-        self.img_references = ImageTk.PhotoImage(file="dedo.png")
-
         status = c.CTkLabel(
             self.jprod,
             text="Desconectado",
@@ -44,17 +43,16 @@ class JanelaProducao():
         self.criarGridPrincipal()
         self.criarGridAdicionais()
 
-        
-        
         # Configurando a função fecharProducao para ser chamada ao fechar a janela de produção
         self.jprod.protocol("WM_DELETE_WINDOW", self.fecharProducao)
-   
-  def criarGridPrincipal(self):
-        
-        
-        main_grid = c.CTkFrame(
-            self.jprod, width=60, height=60,fg_color="gray"
-        )
+
+    def imagem(self):
+        imagem = ImageTk.PhotoImage(file="dedo.png", master=self.jprod)
+
+        return imagem
+
+    def criarGridPrincipal(self):
+        main_grid = c.CTkFrame(self.jprod, width=60, height=60, fg_color="gray")
         main_grid.grid(row=1, column=1)
 
         # Quadrado central com fundo cinza
@@ -65,26 +63,28 @@ class JanelaProducao():
             padx=10,
             pady=10,
             justify="left",
-            font=("Arial", 20)
-            
+            font=("Arial", 20),
         )
         central_square.grid(row=0, column=0)
 
         try:
-            self.img = self.img_references
+            self.img = self.imagem()
             image_label = c.CTkLabel(
-                main_grid, image=self.img, corner_radius=7,text=""
+                main_grid, image=self.img, corner_radius=7, text=""
             )
-            image_label.grid(row=1, column=1,pady=5,padx=5)
+            image_label.grid(row=1, column=1, pady=5, padx=5)
         except Exception as e:
             logging.error(e)
 
-
-
-  def criarGridAdicionais(self):
+    def criarGridAdicionais(self):
         # Grid superior esquerdo
         top_left_grid = c.CTkFrame(
-            self.jprod, width=400, height=400, bg_color="transparent",fg_color="transparent", corner_radius=10
+            self.jprod,
+            width=400,
+            height=400,
+            bg_color="transparent",
+            fg_color="transparent",
+            corner_radius=10,
         )
         top_left_grid.grid(row=0, column=0, sticky="nw")
 
@@ -103,15 +103,12 @@ class JanelaProducao():
             height=50,
         )
         top_left_text1.grid(row=1, column=0)
-        
+
         top_left_text2 = c.CTkLabel(
-            top_left_grid,
-            text="Peso Limite:",
-            font=("Arial", 20),
-            justify="left"
+            top_left_grid, text="Peso Limite:", font=("Arial", 20), justify="left"
         )
         top_left_text2.grid(row=2, column=0, sticky="nw")
-        
+
         top_left_text3 = c.CTkLabel(
             top_left_grid,
             text="1000 KG",
@@ -121,10 +118,12 @@ class JanelaProducao():
             width=200,
             height=30,
         )
-        top_left_text3.grid(row=3, column=0,sticky="nw")
+        top_left_text3.grid(row=3, column=0, sticky="nw")
 
         # Grid inferior esquerdo
-        bottom_left_grid = c.CTkFrame(self.jprod, width=100, height=100, fg_color="transparent")
+        bottom_left_grid = c.CTkFrame(
+            self.jprod, width=100, height=100, fg_color="transparent"
+        )
         bottom_left_grid.grid(row=2, column=0, sticky="sw")
 
         bottom_left_text = c.CTkLabel(
@@ -165,93 +164,113 @@ class JanelaProducao():
             height=50,
             justify="left",
             font=("Arial", 15),
-            padx =10
-            
+            padx=10,
         )
         top_right_grid.grid(row=0, column=8, sticky="ne")
 
-  def exibir(self):
+    def exibir(self):
         self.janela_principal.fecharJanela()
         self.jprod.deiconify()
-        
-  def fecharProducao(self):
+
+    def fecharProducao(self):
         self.jprod.withdraw()
         self.janela_principal.reabrirPrincipal()
 
 
+class JanelaPrincipal:
+    def __init__(self) -> None:
+        self.janela = c.CTk()
+        self.janela.title("Elevator")
+        self.janela.geometry("800x600")
+        self.janela.resizable(width=False, height=False)
+        c.set_appearance_mode("Dark")
+
+        self.status = c.CTkLabel(
+            self.janela,
+            text="Desconectado",
+            height=10,
+            font=("Arial", 15),
+            corner_radius=10,
+            text_color=("red"),
+            anchor="e",
+        )
+        self.status.pack(padx=10, pady=5, anchor="ne")
+
+        titulo_inicial = c.CTkLabel(
+            self.janela,
+            text="Monta Cargas",
+            height=10,
+            font=("Arial", 50),
+            justify="center",
+        )
+        titulo_inicial.pack(padx=10, pady=100)
+
+        self.hora_atual = c.CTkLabel(
+            self.janela, text="1", height=10, font=("Arial", 25), justify="center"
+        )
+        self.hora_atual.pack(padx=10, pady=10)
+
+        self.progresso = c.CTkProgressBar(
+            self.janela,
+            orientation="horizontal",
+            determinate_speed=1,
+            mode="indeterminate",
+            width=300,
+            height=20,
+        )
+        self.progresso.pack(pady=40)
+        self.progresso.set(0)
+        self.progresso.start()
 
 
-class JanelaPrincipal():
-  
-  def __init__(self) -> None:
+        self.btn_prod = c.CTkButton(
+            self.janela, text="Conectar", command=lambda: self.conectarArd()
+        )
+        self.btn_prod.pack(pady=10)
 
-    self.janela = c.CTk()
-    self.janela.title("Elevator")
-    self.janela.geometry("800x600")
-    self.janela.resizable(width=False, height=False)
-    c.set_appearance_mode("Dark")
+        self.update_time()
 
-    status = c.CTkLabel(self.janela,
-                        text="Desconectado",
-                        height=10,
-                        font=("Arial", 15),
-                        corner_radius=10,
-                        text_color=("red"),
-                        anchor="e")
-    status.pack(padx=10, pady=5, anchor="ne")
+        self.janela.mainloop()
+        logging.info("Janela Principal aberta")
 
-    titulo_inicial = c.CTkLabel(self.janela,
-                                text="Monta Cargas",
-                                height=10,
-                                font=("Arial", 50),
-                                justify="center")
-    titulo_inicial.pack(padx=10, pady=100)
+    def update_time(self):
+        data_atual = time.strftime("%H:%M:%S")
+        self.hora_atual.configure(text=f"Horas: {data_atual}")
+        self.janela.after(1000, lambda: self.update_time())
 
-    self.hora_atual = c.CTkLabel(self.janela,
-                                 text='1',
-                                 height=10,
-                                 font=("Arial", 25),
-                                 justify="center")
-    self.hora_atual.pack(padx=10, pady=10)
+    def abrirJanela(self, tela) -> None:
+        if tela == 1:
+            janela_producao = JanelaProducao(self)
+            logging.info("Abrindo Janela de Producao")
+            janela_producao.exibir()
 
-    progresso = c.CTkProgressBar(self.janela,
-                                 orientation="horizontal",
-                                 determinate_speed=1,
-                                 mode="indeterminate",
-                                 width=300,
-                                 height=20)
-    progresso.pack(pady=40)
-    progresso.set(0)
-    progresso.start()
+    def fecharJanela(self) -> None:
+        self.janela.withdraw()
 
-    btn_prod = c.CTkButton(self.janela,
-                           text="Prod",
-                           command=lambda: self.abrirJanela(1))
-    btn_prod.pack(pady=10)
+    def reabrirPrincipal(self):
+        logging.info("Usuario Desconectado, Reabrindo Janela Principal")
+        self.janela.deiconify()
 
-    self.update_time()
-
-    self.janela.mainloop()
-    logging.info("Janela Principal aberta")
-
-  def update_time(self):
-    data_atual = time.strftime('%H:%M:%S')
-    self.hora_atual.configure(text=f'Horas: {data_atual}')
-    self.janela.after(1000, lambda: self.update_time())
-
-  def abrirJanela(self, tela) -> None:
-
-    if tela == 1:
-      janela_producao = JanelaProducao(self)
-      logging.info("Abrindo Janela de Producao")
-      janela_producao.exibir()
-
-  def fecharJanela(self) -> None:
-    self.janela.destroy()
-
-  def reabrirPrincipal(self):
-    logging.info("Usuário Desconectado")
-
+    def conectarArd(self):
+        self.btn_prod.configure(state="disabled", text="Conectando", fg_color="gray")
+        conexao = ard.ConexaoArd()
+        if conexao.conectarArduino() == True:
+            self.btn_prod.configure(text="Aguardando Sensor")
+            messagebox.showinfo("Monta Cargas", "Conexão Bem Sucedida!")
+            self.status.configure(text="Conectado", text_color=("green"))
+        else:
+            messagebox.showerror(
+                "Monta Cargas", "Erro ao se conectar com o Arduíno, verifique no log."
+            )
+            self.btn_prod.configure(text="Conectar", state="normal", fg_color="#1c6ca4")
+    
+    def login(self):
+        ardu = ard.ConexaoArd()
+        if ardu.validaConexao() == True:
+            
+                        
+        else:
+            pass   
 
 # Instanciando a JanelaPrincipal para iniciar o programa
 janela_principal = JanelaPrincipal()
