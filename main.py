@@ -15,6 +15,9 @@ logging.basicConfig(
 
 class JanelaProducao:
     
+    usuario = ""
+    funcao = ""
+    
     def __init__(self, janela_principal) -> None:
         self.janela_principal = janela_principal
         self.jprod = c.CTk()
@@ -30,7 +33,7 @@ class JanelaProducao:
         self.jprod.rowconfigure(2, weight=1)
         self.jprod.configure(padx=15, pady=15)
 
-        status = c.CTkLabel(
+        self.status = c.CTkLabel(
             self.jprod,
             text="Desconectado",
             height=5,
@@ -38,13 +41,18 @@ class JanelaProducao:
             text_color=("red"),
             justify="center",
         )
-        status.grid(column=1, sticky="n")
+        self.status.grid(column=1, sticky="n")
 
         self.criarGridPrincipal()
         self.criarGridAdicionais()
+        self.update_time()
+
+        self.jprod.after(5000,lambda: self.verificaConexao())
 
         # Configurando a função fecharProducao para ser chamada ao fechar a janela de produção
         self.jprod.protocol("WM_DELETE_WINDOW", self.fecharProducao)
+
+        self.jprod.mainloop()
 
     def imagem(self):
         imagem = ImageTk.PhotoImage(file="dedo.png", master=self.jprod)
@@ -142,7 +150,7 @@ class JanelaProducao:
         bottom_left_text2.grid(row=0, column=1, sticky="sw", ipady=5, ipadx=5)
 
         # Grid inferior direito
-        bottom_right_grid = c.CTkLabel(
+        self.bottom_right_grid = c.CTkLabel(
             self.jprod,
             text="Horário: 19:22 \n\nUsuário: João Pedro\nFunção: Produção",
             bg_color="gray",
@@ -152,7 +160,7 @@ class JanelaProducao:
             justify="left",
             font=("Arial", 18),
         )
-        bottom_right_grid.grid(row=2, column=8, sticky="se")
+        self.bottom_right_grid.grid(row=2, column=8, sticky="se")
 
         # Grid superior direito
         top_right_grid = c.CTkLabel(
@@ -168,15 +176,33 @@ class JanelaProducao:
         )
         top_right_grid.grid(row=0, column=8, sticky="ne")
 
-    def exibir(self):
+    def exibir(self,usuario,funcao):
+        self.usuario = usuario
+        self.funcao = funcao
+        hora_atual = time.strftime("%H:%M")
         self.janela_principal.fecharJanela()
+        self.bottom_right_grid.config(text=f"Horário: {hora_atual} \n\nUsuário: {usuario}\nFunção: {funcao}")
         self.jprod.deiconify()
 
     def fecharProducao(self):
         self.jprod.withdraw()
         self.janela_principal.reabrirPrincipal()
 
+    def update_time(self):
+      data_atual = time.strftime("%H:%M")
+      self.bottom_right_grid(text=f"Horário: {data_atual} \n\nUsuário: {self.usuario}\nFunção: {self.funcao}")
+      self.jprod.after(60000, lambda: self.update_time())
 
+    def verificaConexao(self):
+        conexao = ard.ConexaoArd()
+        if conexao.validaConexao() == True:
+            self.status.configure(text="Conectado",text_color="Green")
+            return True
+        else:
+            self.status.configure(text="Desconectado",text_color="Red")
+            return False
+        
+        
 class JanelaPrincipal:
     def __init__(self) -> None:
         self.janela = c.CTk()
@@ -229,6 +255,7 @@ class JanelaPrincipal:
         self.btn_prod.pack(pady=10)
 
         self.update_time()
+        self.verificaConexao()
 
         self.janela.mainloop()
         logging.info("Janela Principal aberta")
@@ -238,11 +265,11 @@ class JanelaPrincipal:
         self.hora_atual.configure(text=f"Horas: {data_atual}")
         self.janela.after(1000, lambda: self.update_time())
 
-    def abrirJanela(self, tela) -> None:
+    def abrirJanela(self, tela,usuario,funcao) -> None:
         if tela == 1:
             janela_producao = JanelaProducao(self)
             logging.info("Abrindo Janela de Producao")
-            janela_producao.exibir()
+            janela_producao.exibir(usuario,funcao)
 
     def fecharJanela(self) -> None:
         self.janela.withdraw()
@@ -258,6 +285,7 @@ class JanelaPrincipal:
             self.btn_prod.configure(text="Aguardando Sensor")
             messagebox.showinfo("Monta Cargas", "Conexão Bem Sucedida!")
             self.status.configure(text="Conectado", text_color=("green"))
+            self.login()
         else:
             messagebox.showerror(
                 "Monta Cargas", "Erro ao se conectar com o Arduíno, verifique no log."
@@ -267,10 +295,24 @@ class JanelaPrincipal:
     def login(self):
         ardu = ard.ConexaoArd()
         if ardu.validaConexao() == True:
-            
-                        
+           while True:
+             retorno = ard.ser.readline().decode("utf-8")
+             retorno_txt = retorno.strip()
+             if "Vinicius" in retorno_txt:
+               logging.info("Usuario Logado: Vinicius -- Gerente")
+               self.abrirJanela(1,"Vinicius","Gerente")
+               break
         else:
             pass   
+    def verificaConexao(self):
+        conexao = ard.ConexaoArd()
+        if conexao.validaConexao() == True:
+            self.status.configure(text="Conectado", text_color=("green"))
+        else:
+            self.btn_prod.configure(state="normal", text="Conectar", fg_color="#1c6ca4")
+            self.status.configure(text="Desconectado", text_color=("red"))
+        self.janela.after(10000,lambda: self.verificaConexao())
+        
 
 # Instanciando a JanelaPrincipal para iniciar o programa
 janela_principal = JanelaPrincipal()

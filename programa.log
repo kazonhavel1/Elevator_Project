@@ -155,3 +155,5 @@
 2024-01-21 21:14:08,114 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
 2024-01-21 21:14:10,665 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
 2024-01-21 21:14:12,466 - INFO - Janela Principal aberta
+2024-01-22 16:16:05,615 - ERROR - Erro ao se conectar no Arduino: could not open port 'COM5': FileNotFoundError(2, 'O sistema não pode encontrar o arquivo especificado.', None, 2)
+2024-01-22 16:16:09,116 - INFO - Janela Principal aberta
