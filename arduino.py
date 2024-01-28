@@ -35,7 +35,7 @@ class ConexaoArd:
     def validaConexao(self):
         status_atual = False
         try:
-            if self.ser and self.ser.isOpen():
+            if self.ser is not None and self.ser.is_open == True:
                 status_atual = True
                 return status_atual
             else:
@@ -50,15 +50,25 @@ class ConexaoArd:
     def recebeInfos(self):
         if self.conectado == True:
             while True:
-                # Envie dados para o Arduino
-                self.ser.write(b"Ola do Python\n")  # Leia dados do Arduino
+                # Envie dados para o Arduino  # Leia dados do Arduino
                 resposta = self.ser.readline().decode("utf-8")
                 retorno = (
                     f"Recebido do Arduino: {resposta.strip()}"  # Aguarde um segundo
                 )
-                time.sleep(1)
-                return retorno
+                #time.sleep()
+                print(retorno)
+                #return retorno
         else:
             return "Arduino não Conectado"
 
 
+#c = ConexaoArd()
+#
+#c.conectarArduino()
+#
+#ce = c.recebeInfos()
+#while True:
+#    print(time.strftime("%H:%M:%S ") + ce)
+#st = c.ser.is_open
+#
+#print(st)
